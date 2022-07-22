@@ -1,6 +1,8 @@
-# Manage Kubernetes Cluster with Terraform and Argo CD [![Twitter](https://img.shields.io/twitter/follow/piotr_minkowski.svg?style=social&logo=twitter&label=Follow%20Me)](https://twitter.com/piotr_minkowski)
+# Manage Kubernetes Cluster with Terraform and Argo CD and WordPress Example
 
-In this project I'm demonstrating you how to use [Terraform](https://www.terraform.io/) together with [Argo CD](https://argo-cd.readthedocs.io/en/stable/) to create and manage the Kubernetes cluster on [Kind](https://kind.sigs.k8s.io/).
+
+
+In this project I'm demonstrating you how to use [Terraform](https://www.terraform.io/) together with [Argo CD](https://argo-cd.readthedocs.io/en/stable/) and [Wordpress](https://wordpress.com/)to create and manage the Kubernetes cluster on [Kind](https://kind.sigs.k8s.io/).
 
 ## Prerequisites
 1. Terraform CLI installed
