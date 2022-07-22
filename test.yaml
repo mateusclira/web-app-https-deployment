@@ -1,0 +1,18 @@
+username: mateusclira
+password: ENC[AES256_GCM,data:7CkXXY185VSkE/i2qpD2/rAsrImJ6mM=,iv:9VGcfkVXhPhc3AsRwVJHroJf2HkNrf+UI6ZhJDFqJSY=,tag:/I0QtZSzsmb0Km5+3QuqGw==,type:str]
+pin: ENC[AES256_GCM,data:Yj+XjQ==,iv:lwZQ8mfIL7GU13+z5I46W/UYFutTb90ydOOXKAYofWM=,tag:JaCtzbaq+JP6eaVKp2y3Rw==,type:int]
+description: meu login pra acessar a cloud
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-07-21T21:25:11Z"
+    mac: ENC[AES256_GCM,data:wLADsyIRlZta7MvVtx3nawSz+pLgWLAYQdXygH4AUkge76JzD/2TYs0aRb47kL+iciT1pRiP3cgZNTivDal6QscCf1AFhQoGhVAS97msp2WkdHcxAv+w7FHy64z+YYqVL8GAmNzhcqxlljehWvAtxzN2BOpbpawDrP0Y+FReiQI=,iv:PaHU3djEbKjd6q629jBDQ6azZsUEuEcJNyJCjiRnb3w=,tag:fjuQdm+4I+ev7xDFh7FD1A==,type:str]
+    pgp:
+        - created_at: "2022-07-21T21:25:10Z"
+          enc: "-----BEGIN PGP MESSAGE-----\r\n\r\nhF4DxaDCUcuTrPkSAQdAnmKQHYnJcUWO7rFQNMsuFsmlbY1TpBQvX9Y91v8NVWAw\r\nEuGj+v+1ah9bFCMciQckxUyfmPp8lLNwdMJfxlUaclTCiKoFlu5o8VT2SU3ysqv2\r\n1GYBCQIQBgvhsSSXy6DLPr/XR8BGZugGGP0zaf9C6Fo0iKeAhFbZdEp78XESSP7x\r\nz1/ONmLhz6dXYBBtT6gMg3lTylogy1kxL/Ev2iHodFwCx3nUUQkfLL4N9okHkwe6\r\nEc8UrgnuPeY=\r\n=+4Ey\r\n-----END PGP MESSAGE-----\r\n"
+          fp: B55E9EAC72B0B856DD25B6A57A2B6DAEF6C7F30E
+    encrypted_regex: password|pin
+    version: 3.7.3
