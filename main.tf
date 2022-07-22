@@ -99,7 +99,7 @@ resource "kubernetes_service" "argocd" {
 
   spec {
     selector = {
-      app = kubernetes_pod.example.metadata[0].labels.app
+      app = argocd
     }
 
     session_affinity = "ClientIP"
@@ -144,7 +144,7 @@ resource "kubernetes_persistent_volume_claim" "wordpress" {
         storage = "20Gi"
       }
     }
-    volume_name = kubernetes_persistent_volume.wordpress.metadata[0].name
+    volume_name = wp-pv-claim
   }
 }
 
@@ -162,7 +162,7 @@ resource "kubernetes_replication_controller" "wordpress" {
     }
     template {
       container {
-        image = "wordpress:${var.wordpress_version}-apache"
+        image = "wordpress:5.8-apache"
         name  = "wordpress"
 
         env {
@@ -189,13 +189,6 @@ resource "kubernetes_replication_controller" "wordpress" {
           mount_path = "/var/www/html"
         }
       }
-
-      volume {
-        name = "wordpress-persistent-storage"
-        persistent_volume_claim {
-          claim_name = kubernetes_persistent_volume_claim.wordpress.metadata[0].name
-        }
-      }
     }
   }
 }
@@ -207,7 +200,7 @@ resource "kubernetes_service" "wordpress" {
 
   spec {
     selector = {
-      app = kubernetes_pod.example.metadata[0].labels.app
+      app = wordpress
     }
 
     session_affinity = "ClientIP"
