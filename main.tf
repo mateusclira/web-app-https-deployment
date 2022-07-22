@@ -130,31 +130,6 @@ resource "kubernetes_service" "argocd" {
 
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/guides/v2-upgrade-guide#changes-to-the-load_balancers_ingress-block-on-service-and-ingress
 
-
-resource "kubernetes_service" "wordpress" {
-  metadata {
-    name = "wordpress"
-    labels = {
-      app = "wordpress"
-    }
-  }
-  spec {
-    port {
-      port        = 80
-      target_port = 80
-    }
-    selector = {
-      app  = "wordpress"
-      tier = kubernetes_replication_controller.wordpress.spec[0].selector.tier
-    }
-    type = "LoadBalancer"
-  }
-}
-
-output "lb_ip" {
-  value = kubernetes_service.wordpress.load_balancer_ingress[0].ip
-}
-
 resource "kubernetes_persistent_volume_claim" "wordpress" {
   metadata {
     name = "wp-pv-claim"
@@ -257,4 +232,8 @@ resource "kubernetes_service" "wordpress" {
         cidr_blocks = ["wp-127-0-0-1.nip.io"]
     }
   wait_for_load_balancer = "false"
+}
+
+output "lb_ip" {
+  value = kubernetes_service.wordpress.load_balancer_ingress[0].ip
 }
