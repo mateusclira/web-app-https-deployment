@@ -1,12 +1,12 @@
 server:
   additionalApplications:
-    - name: cluster-config
-      namespace: webapp
-      project: mateusclira
+    - name: challenge
+      namespace: mateusclira
+      project: challenge
       source:
         repoURL: https://github.com/mateusclira/challenge-cloud-engineer.git
         targetRevision: main
-        path: argocd/manifests/cluster
+        path: manifests/cluster
         directory:
           recurse: true
       destination:

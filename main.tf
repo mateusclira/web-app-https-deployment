@@ -14,7 +14,8 @@ terraform {
 provider "kind" {}
 
 resource "kind_cluster" "default" {
-  name = "mateusclira"
+  name = "challenge"
+  node_image = "kindest/node:v1.18.4"
   wait_for_ready = true
   kind_config {
     kind = "Cluster"
