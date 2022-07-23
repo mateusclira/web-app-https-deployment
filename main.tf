@@ -77,6 +77,20 @@ provider "helm" {
     client_key = "${kind_cluster.default.client_key}"
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 resource "helm_release" "argocd" {
   name  = "argocd"
