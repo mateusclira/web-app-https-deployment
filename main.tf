@@ -15,7 +15,6 @@ provider "kind" {}
 
 resource "kind_cluster" "default" {
   name = "challenge"
-  node_image = "kindest/node:v1.18.4"
   wait_for_ready = true
   kind_config {
     kind = "Cluster"
@@ -78,6 +77,16 @@ provider "helm" {
     client_key = "${kind_cluster.default.client_key}"
   }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

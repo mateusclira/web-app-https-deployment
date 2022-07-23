@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
+  name: challenge
   labels:
-    app: wordpress
+    app: challenge
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: wordpress
+      app: challenge
   template:
     metadata:
       labels:
-        app: wordpress
+        app: challenge
     spec:
       containers:
-        - name: wordpress
-          image: wordpress:php8.1-fpm-alpine
+        - name: web
+          image: docker/mobywebsite:latest
           ports:
           - containerPort: 8087

@@ -1,14 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: mateusclira-ingress-tls
+  name: mateuscliraingress
 spec:
   tls:
   - hosts:
-      - https://wordpress.default.svc
-    secretName: mateusclira-tls
+      - moby
+    secretName: mateuscliratls
   rules:
-  - host: https://wordpress.default.svc
+  - host: moby
     http:
       paths:
       - path: /
