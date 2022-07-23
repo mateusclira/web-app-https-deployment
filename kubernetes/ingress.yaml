@@ -5,16 +5,16 @@ metadata:
 spec:
   tls:
   - hosts:
-      - https-example.foo.com
+      - https://wordpress.default.svc
     secretName: mateusclira-tls
   rules:
-  - host: https-example.localhost
+  - host: https://wordpress.default.svc
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: service1
+            name: service
             port:
               number: 80
