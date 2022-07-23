@@ -77,7 +77,7 @@ provider "helm" {
     client_key = "${kind_cluster.default.client_key}"
   }
 }
-
+/*
 resource "helm_release" "argocd" {
   name  = "argocd"
 
@@ -91,7 +91,7 @@ resource "helm_release" "argocd" {
     file("argocd/application.yaml")
   ]
 }
-
+/*
 resource "kubernetes_service" "argocd" {
   metadata {
     name = "argocd"
@@ -99,7 +99,7 @@ resource "kubernetes_service" "argocd" {
 
   spec {
     selector = {
-      app = argocd
+      app = argocd.mateusclira
     }
 
     session_affinity = "ClientIP"
@@ -144,7 +144,7 @@ resource "kubernetes_persistent_volume_claim" "wordpress" {
         storage = "20Gi"
       }
     }
-    volume_name = wp-pv-claim
+    volume_name = mateusclira.wordpress
   }
 }
 
@@ -152,12 +152,12 @@ resource "kubernetes_replication_controller" "wordpress" {
   metadata {
     name = "wordpress"
     labels = {
-      app = "wordpress"
+      app = "mateusclira"
     }
   }
   spec {
     selector = {
-      app  = "wordpress"
+      app  = "mateusclira"
       tier = "frontend"
     }
     template {
@@ -173,7 +173,7 @@ resource "kubernetes_replication_controller" "wordpress" {
           name = "WORDPRESS_DB_PASSWORD"
           value_from {
             secret_key_ref {
-              name = kubernetes_secret.mysql.metadata[0].name
+              name = kubernetes_secret.mysql.metadata.name
               key  = "password"
             }
           }
@@ -229,4 +229,4 @@ resource "kubernetes_service" "wordpress" {
 
 output "lb_ip" {
   value = kubernetes_service.wordpress.load_balancer_ingress[0].ip
-}
+} */
