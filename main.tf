@@ -92,16 +92,8 @@ provider "helm" {
 
 
 
+/* ARGO CD 
 
-
-
-
-
-
-
-
-
-/*
 resource "helm_release" "argocd" {
   name  = "argocd"
 
@@ -115,40 +107,45 @@ resource "helm_release" "argocd" {
     file("argocd/application.yaml")
   ]
 }
-/*
+
 resource "kubernetes_service" "argocd" {
   metadata {
     name = "argocd"
   }
-
   spec {
-    selector = {
-      app = argocd.mateusclira
-    }
-
     session_affinity = "ClientIP"
     type             = "LoadBalancer"
-
     port {
       port        = 80
       target_port = 80
     }
   }
-
-   ingress {
-        from_port = 80
-        to_port = 80
-        protocol = "tcp"
-        cidr_blocks = ["argocd-127-0-0-1.nip.io"]
-    }
-    ingress {
-        from_port = 443
-        to_port = 443
-        protocol = "tcp"
-        cidr_blocks = ["argocd-127-0-0-1.nip.io"]
-    }
   wait_for_load_balancer = "false"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+/*
+
 
 #Here starts the wordpress creation 
 

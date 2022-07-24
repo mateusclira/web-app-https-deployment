@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: challenge
+  name: webdeploy
   labels:
     app: challenge
 spec:
@@ -15,7 +15,7 @@ spec:
         app: challenge
     spec:
       containers:
-        - name: web
-          image: docker/mobywebsite:latest
+        - name: webservice
+          image: bitnami/wordpress-nginx:latest
           ports:
-          - containerPort: 8087
+          - containerPort: 9000

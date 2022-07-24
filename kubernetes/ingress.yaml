@@ -2,19 +2,31 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mateuscliraingress
+  annotations:
+    cert-manager.io/issuer: mateuscliraissuer
 spec:
   tls:
   - hosts:
-      - moby
+      - schub.mateusclirachallenge.com
     secretName: mateuscliratls
   rules:
-  - host: moby
+  - host: schub.mateusclirachallenge.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: service
+            name: ingress-nginx
+            port:
+              number: 443
+  - host: schub.mateusclirachallenge.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ingress-nginx
             port:
               number: 80
