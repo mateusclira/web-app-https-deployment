@@ -5,4 +5,4 @@ metadata:
   namespace: ingress-nginx
 spec:
   ca:
-    secretName: mateuscliratls
+    secretName: mateusclirasecret

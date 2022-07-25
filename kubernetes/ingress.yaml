@@ -28,4 +28,4 @@ spec:
   tls:
   - hosts:
       - schub.mateusclirachallenge.com
-    secretName: mateuscliratls
+    secretName: mateusclirasecret
