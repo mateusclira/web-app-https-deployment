@@ -123,25 +123,6 @@ resource "kubernetes_service" "argocd" {
   wait_for_load_balancer = "false"
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 
 /*
@@ -232,19 +213,6 @@ resource "kubernetes_service" "wordpress" {
       target_port = 80
     }
   }
-
-   ingress {
-        from_port = 80
-        to_port = 80
-        protocol = "tcp"
-        cidr_blocks = ["wp-127-0-0-1.nip.io"]
-    }
-    ingress {
-        from_port = 443
-        to_port = 443
-        protocol = "tcp"
-        cidr_blocks = ["wp-127-0-0-1.nip.io"]
-    }
   wait_for_load_balancer = "false"
 }
 

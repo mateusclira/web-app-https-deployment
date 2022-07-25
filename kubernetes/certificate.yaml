@@ -2,6 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: mateuscliraca
+  namespace: default
 spec:
   secretName: mateuscliratls
   dnsNames:

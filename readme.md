@@ -1,8 +1,6 @@
-# Manage Kubernetes Cluster with Terraform and Argo CD and WordPress Example
+# Manage Kubernetes Cluster with Terraform and Web API Example
 
-
-
-In this project I'm demonstrating you how to use [Terraform](https://www.terraform.io/) together with [Argo CD](https://argo-cd.readthedocs.io/en/stable/) and [Wordpress](https://wordpress.com/)to create and manage the Kubernetes cluster on [Kind](https://kind.sigs.k8s.io/).
+In this project I'm demonstrating you how to use [Terraform](https://www.terraform.io/) together to create and manage the Kubernetes cluster on [Kind](https://kind.sigs.k8s.io/).
 
 ## Prerequisites
 1. Terraform CLI installed
@@ -31,14 +29,28 @@ Run the Terraform actions:
 ```shell
 terraform apply
 ```
+##### In order to apply the .yaml files 
+Run kubectl apply -f .\kubernetes 
 
-## Results
 
-After running the previous command you receive:
-* 3-nodes Kind cluster running locally
-* OLM (Operator Lifecycle Manager) installed on Kind
-* Argo CD installed on Kind
-* Kafka Strimzi operator ready to use
-* 3-node Kafka cluster created on Kind
-* Wordpress Vanilla installed on Kind
-* Both Wordpress and Argo opened to http and https using ingress
+##### You have to install the ingress-nginx controler 
+Run kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/cloud/deploy.yaml
+
+##### Run this to install the cert-manager
+
+First install the CRDs:
+
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.crds.yaml
+
+Then install the cert-manager:
+
+helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.8.2 --set prometheus.enabled=false --set webhook.timeoutSeconds=4
+
+#### You still need to create a DNS name or if possible create a DNS zone in order to have a named host as I used in this example git.
+
+
+* Uses on this Github:
+- Terraform Kind Cluster Creation
+- Ksops to secure secrets
+- Deploy of a Web Application
+- Ingress to deploy HTTPS on a Kubernetes Cluster (Incomplete)
