@@ -29,22 +29,27 @@ Run the Terraform actions:
 ```shell
 terraform apply
 ```
-##### In order to apply the .yaml files 
+
+#### In order to apply the .yaml files 
+```shell 
 Run kubectl apply -f .\kubernetes 
+```
 
-
-##### You have to install the ingress-nginx controler 
+#### You have to install the ingress-nginx controler 
+```shell 
 Run kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/cloud/deploy.yaml
+```
 
 ##### Run this to install the cert-manager
 
 First install the CRDs:
-
+```shell 
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.crds.yaml
-
+```
 Then install the cert-manager:
-
+```shell 
 helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.8.2 --set prometheus.enabled=false --set webhook.timeoutSeconds=4
+```
 
 #### You still need to create a DNS name or if possible create a DNS zone in order to have a named host as I used in this example git.
 
