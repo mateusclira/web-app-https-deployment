@@ -51,8 +51,8 @@ helm install cert-manager jetstack/cert-manager --namespace cert-manager --creat
 kubectl apply -f .\kubernetes 
 ```
 
-#### You still need to create a DNS name or if possible create a DNS zone in order to have a named host as I used in this example git.
 
+## You still need to create a DNS name or if possible create a DNS zone in order to have a named host as I used in this example git.
 
 * Uses on this Github include:
 1. Terraform Kind Cluster Creation
