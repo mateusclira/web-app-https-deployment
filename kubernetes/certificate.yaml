@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: mateuscliraca
-  namespace: cert-manager
+  namespace: ingress-nginx
 spec:
   secretName: mateuscliratls
   dnsNames:
