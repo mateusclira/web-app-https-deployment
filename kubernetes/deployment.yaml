@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: moby
   labels:
-    app: challenge
+    app: app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: challenge
+      app: app
   template:
     metadata:
       labels:
-        app: challenge
+        app: app
     spec:
       containers:
         - name: webserver
           image: docker/mobywebsite:latest
           imagePullPolicy: Always
           ports:
-          - containerPort: 9000
+          - containerPort: 80

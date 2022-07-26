@@ -2,16 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    kubernetes.io/ingress.class: "nginx"
-  name: mateusclira
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: name
   namespace: default
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
-    - www.mateusebelzinha.com.br
-    secretName: mateusliratls
+    - yourdomain.here
+    secretName: my-tls
   rules:
-  - host: www.mateusebelzinha.com.br
+  - host: yourdomain.here
     http:
       paths:
       - path: /

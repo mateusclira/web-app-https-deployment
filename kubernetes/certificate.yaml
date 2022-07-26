@@ -1,11 +1,11 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: mateuscliramyca
+  name: my-ca
 spec:
   dnsNames:
-    - www.mateusebelzinha.com.br
-  secretName: mateusliratls
+    - yourdomain.here
+  secretName: my-tls
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer
