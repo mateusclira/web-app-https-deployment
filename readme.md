@@ -30,12 +30,12 @@ Run the Terraform actions:
 terraform apply
 ```
 
-#### You have to install the ingress-nginx controler 
+### You have to install the ingress-nginx controler 
 ```shell 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/cloud/deploy.yaml
 ```
 
-##### Run this to install the cert-manager
+#### Run this to install the cert-manager
 
 First install the CRDs:
 ```shell 
@@ -46,19 +46,42 @@ Then install the cert-manager:
 helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.8.2 --set prometheus.enabled=false --set webhook.timeoutSeconds=4
 ```
 
-#### In order to apply the .yaml files 
+## You are going to need to indicate that the your cluster's IP is addressed to your Hostname. To do so, you are going to need a DNS Provider service
+
+
+## Now, apply the Issuer, so it can provide the environment for the Certificate
 ```shell 
-kubectl apply -f .\kubernetes 
+kubectl apply -f .\kubernetes\issuer.yaml 
 ```
 
-#### You still need to create a DNS name or if possible create a DNS zone in order to have a named host as I used in this example git.
+### Deploy the application and the service
+```shell 
+kubectl apply -f .\kubernetes\deployment.yaml 
+```
+```shell 
+kubectl apply -f .\kubernetes\service.yaml
+```
 
+## We can now create our Certificate, which will be the last requisite for the Ingress
+```shell 
+kubectl apply -f .\kubernetes\certificate.yaml
+```
 
-* Uses on this Github include:
+## Make sure your certificate ran correctly and created the tls. You should be able to see a recently created kubernetes.io/tls's TYPE
+```shell 
+kubectl get secrets
+```
+
+## Finally, create the ingress, and the HTTPS will be available.
+```shell 
+kubectl apply -f .\kubernetes\ingress.yaml
+```
+
+### Uses on this Github include:
 1. Terraform Kind Cluster Creation
 2. Ksops to secure secrets
 3. Deploy of a Web Application
-4. Ingress to deploy HTTPS on a Kubernetes Cluster (Incomplete)
+4. Ingress to deploy HTTPS on a Kubernetes Cluster
 
 
 ## Guides for study 
