@@ -80,9 +80,8 @@ kubectl apply -f .\kubernetes\ingress.yaml
 
 ### Uses on this Github include:
 1. Terraform Kind Cluster Creation
-2. Ksops to secure secrets
-3. Deploy of a Web Application
-4. Ingress to deploy HTTPS on a Kubernetes Cluster
+2. Deploy of a Web Application
+3. Ingress to deploy HTTPS on a Kubernetes Cluster
 
 
 ## Guides for study 
