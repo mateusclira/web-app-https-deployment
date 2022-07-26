@@ -1,31 +1,22 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
   name: mateuscliraingress
-  namespace: ingress-nginx
 spec:
-  rules:
-  - host: schub.mateusclirachallenge.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: ingress-nginx
-            port:
-              number: 443
-  - host: schub.mateusclirachallenge.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: ingress-nginx
-            port:
-              number: 80
   tls:
   - hosts:
-      - schub.mateusclirachallenge.com
-    secretName: mateusclirasecret
+    - mateuslirachallenge.ignorelist.com
+    secretName: mateusliratls
+  rules:
+  - host: mateuslirachallenge.ignorelist.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: service-moby
+            port: 
+              number: 80
