@@ -81,7 +81,7 @@ kubectl apply -f .\kubernetes\ingress.yaml
 1. Terraform Kind Cluster Creation
 2. Ksops to secure secrets
 3. Deploy of a Web Application
-4. Ingress to deploy HTTPS on a Kubernetes Cluster (Incomplete)
+4. Ingress to deploy HTTPS on a Kubernetes Cluster
 
 
 ## Guides for study 
