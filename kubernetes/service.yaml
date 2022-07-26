@@ -1,14 +1,10 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
   name: service-moby
-  labels:
-    app: challenge
 spec:
+  ports:
+  - port: 80
+    targetPort: http
   selector:
     app: challenge
-  ports:
-    - protocol: TCP
-      name: http
-      port: 80
-      targetPort: 9000

@@ -15,7 +15,8 @@ spec:
         app: challenge
     spec:
       containers:
-        - name: web
+        - name: webserver
           image: docker/mobywebsite:latest
+          imagePullPolicy: Always
           ports:
           - containerPort: 9000

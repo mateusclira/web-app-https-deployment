@@ -1,11 +1,10 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: mateuscliraca
-  namespace: cert-manager
+  name: mateuscliramyca
 spec:
   dnsNames:
-    - mateuslirachallenge.ignorelist.com
+    - www.mateusebelzinha.com.br
   secretName: mateusliratls
   issuerRef:
     name: letsencrypt-cluster-issuer
