@@ -1,4 +1,4 @@
-# Manage Kubernetes Cluster with Terraform and Web API Example
+# Manage Kubernetes Cluster with Terraform and Web APP Example
 
 In this project I'm demonstrating you how to use [Terraform](https://www.terraform.io/) together to create and manage the Kubernetes cluster on [Kind](https://kind.sigs.k8s.io/).
 
@@ -8,6 +8,8 @@ In this project I'm demonstrating you how to use [Terraform](https://www.terrafo
 3. Kustomize and Sops
 
 ## Getting Started
+
+### These commands will get a Cluster with 3 nodes
 
 First, clone the repo:
 ```shell
