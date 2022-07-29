@@ -86,7 +86,8 @@ kubectl apply -f .\kubernetes\ingress.yaml
 
 ## Guides for study 
 
-1. Kubernetes with Terraform and ArgoCD
+1. Kubernetes
+- [TechWorld with Nana](https://www.youtube.com/c/techworldwithnana) - This one actually teaches everything you need to know on DevOps
 - https://piotrminkowski.com/2022/06/28/manage-kubernetes-cluster-with-terraform-and-argo-cd/
 - https://www.linkedin.com/pulse/automating-kubernetes-cluster-cicd-setup-terraform-argo-stephen-kuntz/
 
