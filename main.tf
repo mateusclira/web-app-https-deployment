@@ -2,7 +2,7 @@ terraform {
   required_providers {
     kind = {
       source = "tehcyx/kind"
-      version = "0.0.12"
+      version = "0.0.15"
     }
     kubectl = {
       source  = "gavinbunney/kubectl"
@@ -14,7 +14,8 @@ terraform {
 provider "kind" {}
 
 resource "kind_cluster" "default" {
-  name = "challenge"
+  name = "experiment"
+  node_image = "kindest/node:v1.23.4"
   wait_for_ready = true
   kind_config {
     kind = "Cluster"
@@ -26,17 +27,13 @@ resource "kind_cluster" "default" {
 
     node {
       role = "worker"
-      image = "kindest/node:v1.24.2"
     }
 
     node {
       role = "worker"
-      image = "kindest/node:v1.24.2"
     }
-
     node {
       role = "worker"
-      image = "kindest/node:v1.24.2"
     }
   }
 }

@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  annotations: 
+  annotations:
     cloud.google.com/neg: "{\"ingress\":false}"
   name: service-moby
-spec: 
+spec:
   type: ClusterIP
   ports:
   - port: 80

@@ -15,8 +15,8 @@ spec:
         app: app
     spec:
       containers:
-        - name: webserver
-          image: docker/mobywebsite:latest
-          imagePullPolicy: Always
-          ports:
-          - containerPort: 80
+      - name: webserver
+        image: docker/mobywebsite:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

@@ -18,7 +18,7 @@ spec:
       - path: /
         pathType: Prefix
         backend:
-          service: 
+          service:
             name: service-moby
-            port: 
+            port:
               number: 80
