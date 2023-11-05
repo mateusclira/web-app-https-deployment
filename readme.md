@@ -31,20 +31,24 @@ Run the Terraform actions:
 terraform apply
 ```
 
+https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx
+
 ### You have to install the ingress-nginx controler 
 ```shell 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.4/deploy/static/provider/cloud/deploy.yaml
 ```
 
 #### Run this to install the cert-manager
 
+https://artifacthub.io/packages/helm/cert-manager/cert-manager
+
 First install the CRDs:
 ```shell 
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.crds.yaml
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.2/cert-manager.crds.yaml
 ```
 Then install the cert-manager:
 ```shell 
-helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.8.2 --set prometheus.enabled=false --set webhook.timeoutSeconds=4
+helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.13.2 --set prometheus.enabled=false --set webhook.timeoutSeconds=4
 ```
 
 ## You are going to need to indicate that the your cluster's IP is addressed to your Hostname. To do so, you are going to need a DNS Provider service
